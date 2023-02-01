@@ -77,7 +77,7 @@ else
               
      {
             
-      Console.WriteLine("Please enter in a string that can be encoded:");
+      Console.WriteLine("Enter in a string :");
            
       string input = Console.ReadLine();
             
