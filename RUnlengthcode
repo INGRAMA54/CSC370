@@ -70,14 +70,12 @@ public class RunLengthEncoding
        
        else 
        {
-           
-           
+
          for
                  
                  
          (int J = 0; J < count; J++)
-       
-               
+
              result.append(previous);
          
        }
