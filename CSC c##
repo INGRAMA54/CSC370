@@ -12,9 +12,9 @@ public class RunLengthEncoder //the class runlengthencoder
  
            string output = ""; //print output string
             
-           int count = 1; //the count is 1
+           int counter = 1; //the counter is 1
        
-           char current = input[0];//current number of character
+           character current = input[0];//current number of character
             
            for (int i = 1; i < input.Length; i++)                     
                 
@@ -24,16 +24,16 @@ public class RunLengthEncoder //the class runlengthencoder
                     
            {
  
-      count++; //add to the count
+      counter++; //add to the count
                     
            }
         
 else
 {
-     //If the count is greater than than or equal to four
-         if (count > 4)
+     //If the counter is greater than than or equal to four
+         if (counter > 4)
            {
-     output += "/" + count.ToString("D2") + current; 
+     output += "/" + counter.ToString("D2") + current; 
                         
                     }
                     
@@ -46,17 +46,17 @@ else
       }
             current = input[i];
                
-           count = 1;
+           counter = 1;
            
                 }
         
        }
             
-  if (count > 4) //If the count is greater than than or equal to four
+  if (counter > 4) //If the count is greater than than or equal to four
       
   {
   
-   output += "/" + count.ToString("D2") + current;
+   output += "/" + counter.ToString("D2") + current;
                 
   }
           
@@ -64,7 +64,7 @@ else
                 
      {
                 
-    output += new string(current, count);
+    output += new string(current, counter);
                 
      }
             
