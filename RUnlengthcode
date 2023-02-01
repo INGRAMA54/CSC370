@@ -13,60 +13,59 @@ public class RunLengthEncoding
    //Variables to store the count of current character and the previous character
     int count = 1;
     
-    char prev = input.charAt(0);
+    character previous = input.charAt(0);
        
   
   //The for loop 
   
  for
          
-  (int i = 1; i < input.length(); i++)
+  (int I = 1; i < input.length(); I++)
      
   {
-      char curr = input.charAt(i);
+      character current = input.charAt(i);
       
   //An if else statement in case the current any if all characters that get repeated 
-           if(curr == prev)
+           if(current == previous)
            {
-               count++;
+               counter++;
                
   
            }
            
            else 
            {
-               //Encode the string if it's length is greater than 4
-               if(count > 4) 
+               if(counter > 4) 
                {
                    result.append("/");
-                   result.append(Integer.toString(count));
-                   result.append(prev);
+                   result.append(Integer.toString(counter));
+                   result.append(previous);
                //Else do not encode and just append to result
                } 
                
                else
                
                {
-                   for(int j = 0; j < count; j++)
-                       result.append(prev);
+                   for(int J = 0; J < counter; J++)
+                       result.append(previous);
                }
                //This is to reset the counter
-               count = 1;
+               counter = 1;
            }
            // set the most previous character to the mostcurrent character
-          prev = curr;
+          previous= current;
     }
        
 
-   if(count > 4) 
+   if(counter > 4) 
        
   {
       //To put a /
            result.append("/");
            
-      result.append(Integer.toString(count));
+      result.append(Integer.toString(counter));
       
-      result.append(prev);
+      result.append(previous);
        } 
        
        else 
@@ -76,10 +75,10 @@ public class RunLengthEncoding
          for
                  
                  
-         (int j = 0; j < count; j++)
+         (int J = 0; J < count; J++)
        
                
-             result.append(prev);
+             result.append(previous);
          
        }
        
