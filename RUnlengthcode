@@ -1,0 +1,89 @@
+public class RunLengthEncoding 
+{
+   public static String encode(String input)
+   {
+       //This is to check for any empty srting
+       if(input == null || input.length() == 0)
+           return "";
+       
+   //This is to show the rresults
+   
+       StringBuilder result = new StringBuilder();
+       
+   //Variables to store the count of current character and the previous character
+    int count = 1;
+    
+    char prev = input.charAt(0);
+       
+  
+  //The for loop 
+  
+ for
+         
+  (int i = 1; i < input.length(); i++)
+     
+  {
+      char curr = input.charAt(i);
+      
+  //An if else statement in case the current any if all characters that get repeated 
+           if(curr == prev)
+           {
+               count++;
+               
+  
+           }
+           
+           else 
+           {
+               //Encode the string if it's length is greater than 4
+               if(count > 4) 
+               {
+                   result.append("/");
+                   result.append(Integer.toString(count));
+                   result.append(prev);
+               //Else do not encode and just append to result
+               } 
+               
+               else
+               
+               {
+                   for(int j = 0; j < count; j++)
+                       result.append(prev);
+               }
+               //This is to reset the counter
+               count = 1;
+           }
+           // set the most previous character to the mostcurrent character
+          prev = curr;
+    }
+       
+
+   if(count > 4) 
+       
+  {
+      //To put a /
+           result.append("/");
+           
+      result.append(Integer.toString(count));
+      
+      result.append(prev);
+       } 
+       
+       else 
+       {
+           
+           
+         for
+                 
+                 
+         (int j = 0; j < count; j++)
+       
+               
+             result.append(prev);
+         
+       }
+       
+       return result.toString();
+   }
+   
+}
