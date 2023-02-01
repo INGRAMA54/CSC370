@@ -1,0 +1,92 @@
+using System;
+namespace RunLengthEncoding
+{
+public class RunLengthEncoder //the class runlengthencoder
+    {
+        public static string Encode(string input)
+                
+        {
+           if (input.Length <= 4)
+                
+           return input;
+ 
+           string output = ""; //print output string
+            
+           int count = 1; //the count is 1
+       
+           char current = input[0];//current number of character
+            
+           for (int i = 1; i < input.Length; i++)                     
+                
+         {        
+  
+        if (input[i] == current) //if it is equal to the current
+                    
+           {
+ 
+      count++; //add to the count
+                    
+           }
+        
+else
+{
+     //If the count is greater than than or equal to four
+         if (count > 4)
+           {
+     output += "/" + count.ToString("D2") + current; 
+                        
+                    }
+                    
+  else
+                        
+     {
+                        
+           output += new string(current, count); //print out to a new string
+                        
+      }
+            current = input[i];
+               
+           count = 1;
+           
+                }
+        
+       }
+            
+  if (count > 4) //If the count is greater than than or equal to four
+      
+  {
+  
+   output += "/" + count.ToString("D2") + current;
+                
+  }
+          
+   else
+                
+     {
+                
+    output += new string(current, count);
+                
+     }
+            
+            
+      return output;
+            
+    }
+        
+      static void Main(string[] args)
+              
+     {
+            
+      Console.WriteLine("Please enter in a string that can be encoded:");
+           
+      string input = Console.ReadLine();
+            
+       string encoded = Encode(input);
+            
+      Console.WriteLine("The encoded string: " + encoded); //prints out the users printed string
+      
+        }
+        
+    }
+
+}
